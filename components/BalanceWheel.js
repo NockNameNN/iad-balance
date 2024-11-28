@@ -4,9 +4,9 @@ import { Chart, ArcElement, Tooltip, Legend, RadialLinearScale } from 'chart.js'
 
 Chart.register(ArcElement, Tooltip, Legend, RadialLinearScale);
 
-const BalanceWheel = ({ classData, className }) => {
-  const categories = Object.keys(classData[0]).filter((key, index) => 
-    className ? index > 1 : index > 0
+const BalanceWheel = ({ classData, className, groupColumn, selectedColumns }) => {
+  const categories = selectedColumns.filter(column => 
+    column !== groupColumn && (className ? column !== "Отметка времени" : true) 
   );  
 
   const averages = categories.map(category => {

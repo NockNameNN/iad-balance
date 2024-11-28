@@ -2,8 +2,8 @@
 import React from 'react';
 import { LineChart, Line, XAxis, YAxis, Tooltip, Legend, CartesianGrid } from 'recharts';
 
-const ComparisonChart = ({ classDataList, classNames }) => {
-  const categories = Object.keys(classDataList[0][0]).filter(key => key !== "Отметка времени" && key !== "Из какого вы класса?");
+const ComparisonChart = ({ classDataList, classNames, selectedColumns }) => {
+  const categories = selectedColumns.filter(key => key !== "Отметка времени" && key !== "Из какого вы класса?");
 
   const calculateAverages = (classData) => {
     return categories.map(category => {
